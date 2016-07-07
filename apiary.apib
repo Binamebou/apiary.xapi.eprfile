@@ -1256,10 +1256,17 @@ Request parameters:
             {
                 "appointmentId":"1",
                 "appointmentType": {
+                    "id":"1",    
                     "label":"Consultatie Gastro-enterologie",
-                    "shortLabel":"Cons. Gastro-entero"
+                    "description":"Cons. Gastro-entero"
+                    "directive":"Directive pour cons. gastro-entéro"   
                 },
-                "physician":"Dr. Jan Janssen",
+            "practioner":
+              {"id":"2",
+               "firstname":"Jan",
+               "lastname"="Jansen",
+               "title":"Doctor"
+              }
                 "site":"ZNA Middelheim",
                 "startDate":"1419696342437",
                 "read":"false"
@@ -1267,10 +1274,17 @@ Request parameters:
             {
                 "appointmentId":"2",
                 "appointmentType": {
+                    "id":"2",
                     "label":"Consultatie Psychiatrie",
-                    "shortLabel":"Cons. Psychiatrie"
+                    "description":"Cons. Psychiatrie",
+                    "directive":"Plus rien à faire" 
                 },
-                "physician":"Dr. Sigi Freud",
+            "practioner":
+              {"id":"1",
+               "firstname":"Sigi",
+               "lastname"="Freud",
+               "title":"Doctor"
+              },
                 "site":"ZNA Middelheim",
                 "startDate":"1418793005500",
                 "read":"false"
@@ -1301,11 +1315,18 @@ Request parameters:
         {
             "appointmentId":"2",
             "appointmentType": {
-                "label":"Consultatie Psychiatrie",
-                "shortLabel":"Cons. Psychiatrie"
-            },
+                    "id":"2",
+                    "label":"Consultatie Psychiatrie",
+                    "description":"Cons. Psychiatrie",
+                    "directive":"Plus rien à faire" 
+                },
             "comment":"Consultatie i.v.m. problemen knie",
-            "physician":"Dr. Sigi Freud",
+            "practioner":
+              {"id":"1",
+               "firstname":"Sigi",
+               "lastname"="Freud",
+               "title":"Doctor"
+              }
             "site":"ZNA Middelheim",
             "startDate":"1418793005500",
             "read":"false"
