@@ -200,38 +200,38 @@ Request parameters
             {
                 "id": "123456",
                 "reason": "Operatie Knie",
-                "treatingPhysician": "Dr. John Doe",
+                "treatingPractitioner": {"id":"3", "title":"Dr.","firstname":"John", "lastname":"Dope"},
                 "hospital": "Ziekenhuis Netwerk Antwerpen",
                 "site":{"2", "ZNA Middelheim","L'adresse du site"},
                 "discipline": "",
                 "department": "2201 - Verpleegkundige Afdeling 1",
                 "admissionDate": 919360800000,
                 "dischargeDate": 919521000000,
-                "doctor": "Dr. Johnny Dope"
+                "doctor":{"id":"3", "title":"Dr.","firstname":"John", "lastname":"Dope"}
             },
             {
                 "id": "456789",
                 "reason": "Operatie Knie",
-                "treatingPhysician": "Dr. John Doe",
+                "treatingPractitioner": {"id":"3", "title":"Dr.","firstname":"John", "lastname":"Dope"},
                 "hospital": "Ziekenhuis Netwerk Antwerpen",
                 "site":{"2", "ZNA Middelheim","L'adresse du site"},
                 "discipline": "",
                 "department": "2202 - Verpleegkundige Afdeling 2",
                 "admissionDate": 1156153500000,
                 "dischargeDate": 1156197540000,
-                "doctor": "Dr. Johnny Dope"
+                "doctor":{"id":"3", "title":"Dr.","firstname":"John", "lastname":"Dope"}
             },
             {
                 "id": "789123",
                 "reason": "Operatie Knie",
-                "treatingPhysician": "Dr. John Doe",
+                "treatingPractitioner": {"id":"3", "title":"Dr.","firstname":"John", "lastname":"Dope"},
                 "hospital": "Ziekenhuis Netwerk Antwerpen",
                 "site":{"2", "ZNA Middelheim","L'adresse du site"},
                 "discipline": "",
                 "department": "2203 - Verpleegkundige Afdeling 3",
                 "admissionDate": 1389781860000,
                 "dischargeDate": 1393782660000,
-                "doctor": "Dr. Johnny Dope"
+                "doctor":{"id":"3", "title":"Dr.","firstname":"John", "lastname":"Dope"}
             }
         ]
 
@@ -270,7 +270,7 @@ Request parameters
            },
               {
               "id": "001001925659",
-              "treatingPhysician": "WILLEMSEN Paul",
+              "treatingPractitioner": {"id":"4", "title":"Dr.","firstname":"Paul", "lastname":"Willemsem"},
               "hospital": "Ziekenhuis Netwerk Antwerpen",
               "discipline": "Algemene heelkunde",
               "department": "ZNA Middelheim",
@@ -562,7 +562,7 @@ Request parameters:
                     {"code": "DOC_458", "domain": "CustomerDomain"}
                 ],
                 "medicalDate": 1394966580000,
-                "doctor":"Dr. Gert Claes",
+                "doctor":{"id":"2", "title":"Dr.","firstname":"Gert.", "lastname":"Claes"}
                 "subject": "Letter",
                 "description":"Rx thorax face, profile",
                 "site":{"1", "Middelheim","L'adresse du site"},
@@ -576,7 +576,7 @@ Request parameters:
                     {"code": "DOC_6598", "domain":"CustomerDomain"}
                 ],
                 "medicalDate": 1394966580000,
-                "doctor":"Dr. Tim S.",
+                "doctor":{"id":"1", "title":"Dr.","firstname":"S.", "lastname":"Tim"},
                 "subject":"Labo",
                 "description":"Lab results",
                 "site":{"1", "Middelheim","L'adresse du site"},
@@ -590,7 +590,7 @@ Request parameters:
                     {"code": "DOC_4118", "domain": "CustomerDomain"}
                 ],
                 "medicalDate": 1394966580000,
-                "doctor":"Dr. Tim S.",
+                "doctor":{"id":"1", "title":"Dr.","firstname":"S.", "lastname":"Tim"},
                 "subject":"RX",
                 "description":"RX thorax face",
                 "site":{"1", "Middelheim","L'adresse du site"},
