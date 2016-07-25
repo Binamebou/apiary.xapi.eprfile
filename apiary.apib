@@ -59,6 +59,41 @@ Request parameters:
 # Group Medical File Data
 Related resources of the **Medical File Data**
 
+## Search doctors whose lastname or the firstname contains the 'searchKey' [/V1/doctors/jan]
+A doctor related service that when used gives the available administrative patient data for a given patient.
+Request parameters:
++ username (required, string, `test`) ... Technical Username used to authenticate
++ password (required, string, `test`) ... Technical Pasword used to authenticate
++ doctorId (required, number, `123456`) ... OG/Riziv Number of the doctor for which the patients are requested
++ applicationId (required, number, `1`) ... Application ID used tho identify the calling app
+
+
+### Search doctors whose lastname or the firstname contains the 'searchKey' [GET]
++ Request (application/x-www-form-urlencoded)
+
+        username=test&password=test&doctorId=123456&applicationId=1
+
++ Response 200 (application/json)
+
+        [
+            {
+                "messageId":"1",
+                "senderId":"1",
+                "senderName":"Dr. Jan Jefferson",
+                "title":"Bijkomende informatie patient X",
+                "creationDate":"1418696342437",
+                "read":"false"
+            },
+            {
+                "messageId":"2",
+                "senderId":"2",
+                "senderName":"Dr. Jef Janssen",
+                "title":"Bijkomende informatie patient Y",
+                "creationDate":"1418796245500",
+                "read":"false"
+            }
+        ]
+        
 ## Patient List [/V1/patients]
 A doctor related service that when used gives a list of available patients who he may consult.
 
@@ -580,7 +615,7 @@ Request parameters:
             {
                 "messageId":"1",
                 "senderId":"1",
-                "senderName":"Dr. Jan Janssen",
+                "senderName":"Dr. Jan Jefferson",
                 "title":"Bijkomende informatie patient X",
                 "creationDate":"1418696342437",
                 "read":"false"
@@ -588,7 +623,7 @@ Request parameters:
             {
                 "messageId":"2",
                 "senderId":"2",
-                "senderName":"Dr. Jef Jefferson",
+                "senderName":"Dr. Jef Janssen",
                 "title":"Bijkomende informatie patient Y",
                 "creationDate":"1418796245500",
                 "read":"false"
@@ -636,7 +671,7 @@ Request parameters:
         {
             "messageId":"1",
             "senderId":"1",
-            "senderName":"Dr. Jan Janssen",
+            "senderName":"Dr. Jan Jefferson",
             "title":"Bijkomende informatie patient X",
             "message":"Beste\n\nHeeft u bijkomende informatie voor patient X?\n\nMet vriendelijke groeten\nTest Testerson",
             "creationDate":"1418696342437",
