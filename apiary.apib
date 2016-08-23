@@ -29,8 +29,8 @@ Request parameters:
 + Response 200 (application/json)
 
         {
-            "username": "test",
-            "fullName": "Mr Test Testerson",
+            "username": "FHeinstayne",
+            "fullName": "Mr Heinstayne Frank",
             "lang": "nl",
             "riziv": "123456",
             "stub": true
@@ -55,6 +55,361 @@ Request parameters:
 + Response 200 (application/json)
 
         true
+
+# Group Messaging
+Related resources of the **Medical File Data**
+
+## Get unread messages count [/V1/messages/{doctorId}/unread/count]
+A doctor related service that when used gives the count of unread messages.
+Request parameters:
++ username (required, string, `test`) ... Technical Username used to authenticate
++ password (required, string, `test`) ... Technical Pasword used to authenticate
++ doctorId (required, number, `123456`) ... OG/Riziv Number of the doctor for which the patients are requested
++ applicationId (required, number, `1`) ... Application ID used tho identify the calling app
+
+### Get unread messages count [GET]
++ Request (application/x-www-form-urlencoded)
+
+        username=test&password=test&doctorId=123456&applicationId=1
+
++ Response 200 (application/json)
+
+        { "count": "5" }
+        
+## Get unread messages list [/V1/messages/{doctorId}/unread/list]
+A doctor related service that when used gives the list of unread messages.
+Request parameters:
++ username (required, string, `test`) ... Technical Username used to authenticate
++ password (required, string, `test`) ... Technical Pasword used to authenticate
++ doctorId (required, number, `123456`) ... OG/Riziv Number of the doctor for which the patients are requested
++ applicationId (required, number, `1`) ... Application ID used tho identify the calling app
+
+### Get unread messages list [GET]
++ Request (application/x-www-form-urlencoded)
+
+        username=test&password=test&doctorId=123456&applicationId=1
+
++ Response 200 (application/json)
+
+        [
+            {
+                "messageId":"1",
+                "senderId":"145871",
+                "senderName":"Pladimir Voutine",
+                "title":"this is a test",
+                "message":"test test test test test test test test test ...",
+                "creationDate":"1470820951067",
+                "read":"false",
+                "resultId":"2"
+            },
+            {
+                "messageId":"2",
+                "senderId":"9618551",
+                "senderName":"Hançois Frollande",
+                "title":"this is a test as well",
+                "message":"test test test test test test test test test ...",
+                "creationDate":"1417136343068",
+                "read":"false",
+                "visitId":"2"
+            },
+            {
+                "messageId":"3",
+                "senderId":"9618587",
+                "senderName":"Obarack Bama",
+                "title":"Another test",
+                "message":"test test test test test test test test test ...",
+                "creationDate":"1470738905000",
+                "read":"false",
+                "visitId":"3"
+            },
+            {
+                "messageId":"4",
+                "senderId":"9617951",
+                "senderName":"Cill Blinton",
+                "title":"Still another test",
+                "message":"test test test test test test test test test ...",
+                "creationDate":"1470756809000",
+                "read":"false",
+                "resultId": "4"
+            },{
+                "messageId":"5",
+                "senderId":"9618587",
+                "senderName":"Obarack Bama",
+                "title":"Oh wait.... another test again!",
+                "message":"test test test test test test test test test ...",
+                "creationDate":"1470736995000",
+                "read":"false",
+                "resultId": "6"
+            },
+            {
+                "messageId":"6",
+                "senderId":"456111",
+                "senderName":"Haden Ezard",
+                "title":"This is well a test",
+                "message":"test test test test test test test test test ...",
+                "creationDate":"1470831451067",
+                "read":"false",
+                "resultId":"1"
+            },
+            {
+                "messageId":"7",
+                "senderId":"9618551",
+                "senderName":"Prad Bitt",
+                "title":"this is a test as well",
+                "message":"test test test test test test test test test ...",
+                "creationDate":"1470820581067",
+                "read":"false",
+                "patientId":"2"
+            },
+            {
+                "messageId":"8",
+                "senderId":"9618587",
+                "senderName":"Obarack Bama",
+                "title":"Again a simple test",
+                "message":"test test test test test test test test test ...",
+                "creationDate":"1470724665000",
+                "read":"false",
+                "patientId":"3"
+            },
+            {
+                "messageId":"9",
+                "senderId":"123456",
+                "senderName":"Bill Clinton",
+                "title":"Still another test",
+                "message":"test test test test test test test test test ...",
+                "creationDate":"1470735408000",
+                "read":"false",
+                "linkedItemId":"4",
+                "type": "result"
+            },{
+                "messageId":"10",
+                "senderId":"123456",
+                "senderName":"Barack Obama",
+                "title":"Oh wait.... another test again!",
+                "message":"test test test test test test test test test ...",
+                "creationDate":"1470736195000",
+                "read":"false",
+                "type": "message",
+                "linkedItemId": "8"
+            },{
+                "messageId":"11",
+                "senderId":"145871",
+                "senderName":"Pladimir Voutine",
+                "title":"Rouski test",
+                "creationDate":"1470834451437",
+                "read":"false",
+                "resultId":"4"
+            },
+            {
+                "messageId":"12",
+                "senderId":"9618551",
+                "senderName":"Hançois Frollande",
+                "title":"Fronjour la bande",
+                "creationDate":"1470830544500",
+                "read":"false"
+            }
+        ]
+
+## Get received messages list [/V1/messages/{doctorId}/received/list/{startingTimestamp}]
+A doctor related service that when used gives the received messages list starting from a timestamp limited to a certain number.
+Request parameters:
++ username (required, string, `test`) ... Technical Username used to authenticate
++ password (required, string, `test`) ... Technical Pasword used to authenticate
++ doctorId (required, number, `123456`) ... OG/Riziv Number of the doctor for which the patients are requested
++ applicationId (required, number, `1`) ... Application ID used tho identify the calling app
+
+### Get received messages list [GET]
++ Request (application/x-www-form-urlencoded)
+
+        username=test&password=test&doctorId=123456&applicationId=1
+
++ Response 200 (application/json)
+
+        [
+            {
+                "messageId":"1",
+                "senderId":"145871",
+                "senderName":"Pladimir Voutine",
+                "title":"this is a test",
+                "message":"test test test test test test test test test ...",
+                "creationDate":"1470820951067",
+                "read":"false",
+                "resultId":"2"
+            },
+            {
+                "messageId":"2",
+                "senderId":"9618551",
+                "senderName":"Hançois Frollande",
+                "title":"this is a test as well",
+                "message":"test test test test test test test test test ...",
+                "creationDate":"1417136343068",
+                "read":"false",
+                "visitId":"2"
+            },
+            {
+                "messageId":"3",
+                "senderId":"9618587",
+                "senderName":"Obarack Bama",
+                "title":"Another test",
+                "message":"test test test test test test test test test ...",
+                "creationDate":"1470738905000",
+                "read":"false",
+                "visitId":"3"
+            },
+            {
+                "messageId":"4",
+                "senderId":"9617951",
+                "senderName":"Cill Blinton",
+                "title":"Still another test",
+                "message":"test test test test test test test test test ...",
+                "creationDate":"1470756809000",
+                "read":"false",
+                "resultId": "4"
+            },{
+                "messageId":"5",
+                "senderId":"9618587",
+                "senderName":"Obarack Bama",
+                "title":"Oh wait.... another test again!",
+                "message":"test test test test test test test test test ...",
+                "creationDate":"1470736995000",
+                "read":"false",
+                "resultId": "6"
+            },
+            {
+                "messageId":"6",
+                "senderId":"456111",
+                "senderName":"Haden Ezard",
+                "title":"This is well a test",
+                "message":"test test test test test test test test test ...",
+                "creationDate":"1470831451067",
+                "read":"false",
+                "resultId":"1"
+            },
+            {
+                "messageId":"7",
+                "senderId":"9618551",
+                "senderName":"Prad Bitt",
+                "title":"this is a test as well",
+                "message":"test test test test test test test test test ...",
+                "creationDate":"1470820581067",
+                "read":"false",
+                "patientId":"2"
+            },
+            {
+                "messageId":"8",
+                "senderId":"9618587",
+                "senderName":"Obarack Bama",
+                "title":"Again a simple test",
+                "message":"test test test test test test test test test ...",
+                "creationDate":"1470724665000",
+                "read":"true",
+                "patientId":"3"
+            },
+            {
+                "messageId":"9",
+                "senderId":"123456",
+                "senderName":"Bill Clinton",
+                "title":"Still another test",
+                "message":"test test test test test test test test test ...",
+                "creationDate":"1470735408000",
+                "read":"true",
+                "linkedItemId":"4",
+                "type": "result"
+            },{
+                "messageId":"10",
+                "senderId":"123456",
+                "senderName":"Barack Obama",
+                "title":"Oh wait.... another test again!",
+                "message":"test test test test test test test test test ...",
+                "creationDate":"1470736195000",
+                "read":"true",
+                "type": "message",
+                "linkedItemId": "8"
+            },{
+                "messageId":"11",
+                "senderId":"145871",
+                "senderName":"Pladimir Voutine",
+                "title":"Rouski test",
+                "creationDate":"1470834451437",
+                "read":"true",
+                "resultId":"4"
+            },
+            {
+                "messageId":"12",
+                "senderId":"9618551",
+                "senderName":"Hançois Frollande",
+                "title":"Fronjour la bande",
+                "creationDate":"1470830544500",
+                "read":"true"
+            }
+        ]
+
+## Get sent messages list [/V1/messages/{doctorId}/sent/list/{startingTimestamp}]
+A doctor related service that when used gives the sent messages list starting from a timestamp limited to a certain number.
+Request parameters:
++ username (required, string, `test`) ... Technical Username used to authenticate
++ password (required, string, `test`) ... Technical Pasword used to authenticate
++ doctorId (required, number, `123456`) ... OG/Riziv Number of the doctor for which the patients are requested
++ applicationId (required, number, `1`) ... Application ID used tho identify the calling app
+
+### Get sent messages list [GET]
++ Request (application/x-www-form-urlencoded)
+
+        username=test&password=test&doctorId=123456&applicationId=1
+
++ Response 200 (application/json)
+
+        [
+            {
+                "messageId":"1",
+                "senderId":"123456",
+                "senderName":"Frank Heinstayne",
+                "title":"this is a test",
+                "message":"test test test test test test test test test ...",
+                "creationDate":"1470820951067",
+                "read":"true",
+                "resultId":"2"
+            },
+            {
+                "messageId":"2",
+                "senderId":"123456",
+                "senderName":"Frank Heinstayne",
+                "title":"this is a test as well",
+                "message":"test test test test test test test test test ...",
+                "creationDate":"1417136343068",
+                "read":"true",
+                "visitId":"2"
+            },
+            {
+                "messageId":"3",
+                "senderId":"123456",
+                "senderName":"Frank Heinstayne",
+                "title":"Another test",
+                "message":"test test test test test test test test test ...",
+                "creationDate":"1470738905000",
+                "read":"true",
+                "visitId":"3"
+            },
+            {
+                "messageId":"4",
+                "senderId":"123456",
+                "senderName":"Frank Heinstayne",
+                "title":"Still another test",
+                "message":"test test test test test test test test test ...",
+                "creationDate":"1470756809000",
+                "read":"true",
+                "resultId": "4"
+            },{
+                "messageId":"5",
+                "senderId":"123456",
+                "senderName":"Frank Heinstayne",
+                "title":"Oh wait.... another test again!",
+                "message":"test test test test test test test test test ...",
+                "creationDate":"1470736995000",
+                "read":"true",
+                "resultId": "6"
+            }
+        ]
 
 # Group Medical File Data
 Related resources of the **Medical File Data**
@@ -615,12 +970,12 @@ Request parameters:
             {
                 "messageId":"1",
                 "senderId":"123456",
-                "senderName":"Robbie Denys",
+                "senderName":"Me",
                 "title":"this is a test",
                 "message":"test test test test test test test test test ...",
                 "creationDate":"1470820951067",
                 "read":"true",
-                "type": "message"
+                "resultId":"2"
             },
             {
                 "messageId":"2",
@@ -630,7 +985,7 @@ Request parameters:
                 "message":"test test test test test test test test test ...",
                 "creationDate":"1417136343067",
                 "read":"false",
-                "resultId":"2",
+                "linkedItemId":"2",
                 "type": "result"
             },
             {
@@ -641,7 +996,7 @@ Request parameters:
                 "message":"test test test test test test test test test ...",
                 "creationDate":"1470734705000",
                 "read":"false",
-                "meetingId":"3",
+                "linkedItemId":"3",
                 "type": "meeting"
             },
             {
@@ -652,7 +1007,7 @@ Request parameters:
                 "message":"test test test test test test test test test ...",
                 "creationDate":"1470736209000",
                 "read":"true",
-                "resultId":"4",
+                "linkedItemId":"4",
                 "type": "result"
             },{
                 "messageId":"5",
@@ -662,7 +1017,8 @@ Request parameters:
                 "message":"test test test test test test test test test ...",
                 "creationDate":"1470736805000",
                 "read":"false",
-                "type": "message"
+                "type": "message",
+                "linkedItemId":"6"
             },
             {
                 "messageId":"6",
@@ -672,7 +1028,8 @@ Request parameters:
                 "message":"test test test test test test test test test ...",
                 "creationDate":"1470831451067",
                 "read":"true",
-                "type": "message"
+                "type": "message",
+                "linkedItemId":"5"
             },
             {
                 "messageId":"7",
@@ -682,7 +1039,7 @@ Request parameters:
                 "message":"test test test test test test test test test ...",
                 "creationDate":"1470810681067",
                 "read":"true",
-                "resultId":"2",
+                "linkedItemId":"2",
                 "type": "result"
             },
             {
@@ -693,7 +1050,7 @@ Request parameters:
                 "message":"test test test test test test test test test ...",
                 "creationDate":"1470724555000",
                 "read":"false",
-                "meetingId":"3",
+                "linkedItemId":"3",
                 "type": "meeting"
             },
             {
@@ -704,7 +1061,7 @@ Request parameters:
                 "message":"test test test test test test test test test ...",
                 "creationDate":"1470735408000",
                 "read":"true",
-                "resultId":"4",
+                "linkedItemId":"4",
                 "type": "result"
             },{
                 "messageId":"10",
@@ -714,7 +1071,8 @@ Request parameters:
                 "message":"test test test test test test test test test ...",
                 "creationDate":"1470736195000",
                 "read":"true",
-                "type": "message"
+                "type": "message",
+                "linkedItemId": "8"
             },{
                 "messageId":"11",
                 "senderId":"123456",
@@ -722,17 +1080,17 @@ Request parameters:
                 "title":"Bijkomende informatie patient X",
                 "creationDate":"1470830951437",
                 "read":"true",
-                "meetingId":"4",
+                "linkedItemId":"4",
                 "type": "meeting"
             },
             {
                 "messageId":"12",
-                "senderId":"2437254add some message ",
+                "senderId":"2437254",
                 "senderName":"Dr. Jef Janssen",
                 "title":"Bijkomende informatie patient Y",
                 "creationDate":"1470830951500",
                 "read":"false",
-                "resultId":"10",
+                "linkedItemId":"10",
                 "type": "result"
             }
         ]
@@ -744,14 +1102,15 @@ Request parameters:
             "recipientId":"123456",
             "title":"another test",
             "message":"test test test test test test test test test ...",
-            "resultId": "123456789"
+            "type":"message",
+            "linkedItemId": "123456789"
         }
 
 
 + Response 200 (application/json)
 
         {
-            "messageId":"2"
+            "messageId":"20"
         }
 
 ## Patient Message Detail [/V1/patients/{patientId}/messages/{messageId}]
@@ -771,19 +1130,20 @@ Request parameters:
 + Request (application/x-www-form-urlencoded)
 
         username=test&password=test&doctorId=123456&applicationId=1
-
-
+        
 + Response 200 (application/json)
 
         {
-            "messageId":"1",
+            "messageId":"5",
             "senderId":"1",
-            "senderName":"Dr. Jan Jefferson",
-            "title":"Bijkomende informatie patient X",
-            "message":"Beste\n\nHeeft u bijkomende informatie voor patient X?\n\nMet vriendelijke groeten\nTest Testerson",
-            "creationDate":"1418696342437",
+            "senderName":"Barack Obama",
+            "title":"Oh wait.... another test again!",
+            "message":"Hello Jonathan!\n\nGPPXperthisLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.\n\nMet vriendelijke groeten\nTest Testerson",
+            "creationDate":"1470736195000",
             "read":"false",
-            "resultId": "18259"
+            "type": "meeting",
+            "linkedItemId":"11",
+            "parentMessageId":"5"
         }
 
 # Group Medical Results Data
