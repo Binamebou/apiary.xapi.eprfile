@@ -59,6 +59,32 @@ Request parameters:
 # Group Messaging
 Related resources of the **Medical File Data**
 
+## Get message [/V1/messages/{doctorId}/message/{messageId}]
+A doctor related service that when used gives a message information.
+Request parameters:
++ username (required, string, `test`) ... Technical Username used to authenticate
++ password (required, string, `test`) ... Technical Pasword used to authenticate
++ doctorId (required, number, `123456`) ... OG/Riziv Number of the doctor for which the patients are requested
++ applicationId (required, number, `1`) ... Application ID used tho identify the calling app
+
+### Get message [GET]
++ Request (application/x-www-form-urlencoded)
+
+        username=test&password=test&doctorId=123456&applicationId=1
+
++ Response 200 (application/json)
+
+        {
+            "messageId":"1",
+            "senderId":"145871",
+            "senderName":"Pladimir Voutine",
+            "title":"this is a test",
+            "message":"test test test test test test test test test ...",
+            "creationDate":"1470820951067",
+            "read":"false",
+            "resultId":"2"
+        }
+
 ## Get unread messages count [/V1/messages/{doctorId}/unread/count]
 A doctor related service that when used gives the count of unread messages.
 Request parameters:
@@ -74,7 +100,7 @@ Request parameters:
 
 + Response 200 (application/json)
 
-        { "count": "5" }
+        7
         
 ## Get unread messages list [/V1/messages/{doctorId}/unread/list]
 A doctor related service that when used gives the list of unread messages.
@@ -160,65 +186,37 @@ Request parameters:
                 "creationDate":"1470820581067",
                 "read":"false",
                 "patientId":"2"
-            },
-            {
-                "messageId":"8",
-                "senderId":"9618587",
-                "senderName":"Obarack Bama",
-                "title":"Again a simple test",
-                "message":"test test test test test test test test test ...",
-                "creationDate":"1470724665000",
-                "read":"false",
-                "patientId":"3"
-            },
-            {
-                "messageId":"9",
-                "senderId":"123456",
-                "senderName":"Bill Clinton",
-                "title":"Still another test",
-                "message":"test test test test test test test test test ...",
-                "creationDate":"1470735408000",
-                "read":"false",
-                "linkedItemId":"4",
-                "type": "result"
-            },{
-                "messageId":"10",
-                "senderId":"123456",
-                "senderName":"Barack Obama",
-                "title":"Oh wait.... another test again!",
-                "message":"test test test test test test test test test ...",
-                "creationDate":"1470736195000",
-                "read":"false",
-                "type": "message",
-                "linkedItemId": "8"
-            },{
-                "messageId":"11",
-                "senderId":"145871",
-                "senderName":"Pladimir Voutine",
-                "title":"Rouski test",
-                "creationDate":"1470834451437",
-                "read":"false",
-                "resultId":"4"
-            },
-            {
-                "messageId":"12",
-                "senderId":"9618551",
-                "senderName":"Hançois Frollande",
-                "title":"Fronjour la bande",
-                "creationDate":"1470830544500",
-                "read":"false"
             }
         ]
 
-## Get received messages list [/V1/messages/{doctorId}/received/list/{startingTimestamp}]
-A doctor related service that when used gives the received messages list starting from a timestamp limited to a certain number.
+## Get received messages list Before [/V1/messages/{doctorId}/received/list/before/{startingTimestamp}]
+A doctor related service that when used gives the received messages list before a timestamp limited to a certain number.
 Request parameters:
 + username (required, string, `test`) ... Technical Username used to authenticate
 + password (required, string, `test`) ... Technical Pasword used to authenticate
 + doctorId (required, number, `123456`) ... OG/Riziv Number of the doctor for which the patients are requested
 + applicationId (required, number, `1`) ... Application ID used tho identify the calling app
 
-### Get received messages list [GET]
+### Get received messages list Before [GET]
++ Request (application/x-www-form-urlencoded)
+
+        username=test&password=test&doctorId=123456&applicationId=1
+
++ Response 200 (application/json)
+
+        [
+            
+        ]
+        
+## Get received messages list After [/V1/messages/{doctorId}/received/list/after/{startingTimestamp}]
+A doctor related service that when used gives the received messages list after a timestamp limited to a certain number.
+Request parameters:
++ username (required, string, `test`) ... Technical Username used to authenticate
++ password (required, string, `test`) ... Technical Pasword used to authenticate
++ doctorId (required, number, `123456`) ... OG/Riziv Number of the doctor for which the patients are requested
++ applicationId (required, number, `1`) ... Application ID used tho identify the calling app
+
+### Get received messages list After [GET]
 + Request (application/x-www-form-urlencoded)
 
         username=test&password=test&doctorId=123456&applicationId=1
@@ -308,7 +306,7 @@ Request parameters:
             {
                 "messageId":"9",
                 "senderId":"123456",
-                "senderName":"Bill Clinton",
+                "senderName":"Cill Blinton",
                 "title":"Still another test",
                 "message":"test test test test test test test test test ...",
                 "creationDate":"1470735408000",
@@ -318,7 +316,7 @@ Request parameters:
             },{
                 "messageId":"10",
                 "senderId":"123456",
-                "senderName":"Barack Obama",
+                "senderName":"Obarack Bama",
                 "title":"Oh wait.... another test again!",
                 "message":"test test test test test test test test test ...",
                 "creationDate":"1470736195000",
@@ -344,15 +342,82 @@ Request parameters:
             }
         ]
 
-## Get sent messages list [/V1/messages/{doctorId}/sent/list/{startingTimestamp}]
-A doctor related service that when used gives the sent messages list starting from a timestamp limited to a certain number.
+## Get sent messages list Before [/V1/messages/{doctorId}/sent/list/before/{startingTimestamp}]
+A doctor related service that when used gives the sent messages list before a timestamp limited to a certain number.
 Request parameters:
 + username (required, string, `test`) ... Technical Username used to authenticate
 + password (required, string, `test`) ... Technical Pasword used to authenticate
 + doctorId (required, number, `123456`) ... OG/Riziv Number of the doctor for which the patients are requested
 + applicationId (required, number, `1`) ... Application ID used tho identify the calling app
 
-### Get sent messages list [GET]
+### Get sent messages list Before [GET]
++ Request (application/x-www-form-urlencoded)
+
+        username=test&password=test&doctorId=123456&applicationId=1
+
++ Response 200 (application/json)
+
+        [
+            {
+                "messageId":"1",
+                "senderId":"123456",
+                "senderName":"Frank Heinstayne",
+                "title":"this is a test",
+                "message":"test test test test test test test test test ...",
+                "creationDate":"1470820951067",
+                "read":"true",
+                "resultId":"2"
+            },
+            {
+                "messageId":"2",
+                "senderId":"123456",
+                "senderName":"Frank Heinstayne",
+                "title":"this is a test as well",
+                "message":"test test test test test test test test test ...",
+                "creationDate":"1417136343068",
+                "read":"true",
+                "visitId":"2"
+            },
+            {
+                "messageId":"3",
+                "senderId":"123456",
+                "senderName":"Frank Heinstayne",
+                "title":"Another test",
+                "message":"test test test test test test test test test ...",
+                "creationDate":"1470738905000",
+                "read":"true",
+                "visitId":"3"
+            },
+            {
+                "messageId":"4",
+                "senderId":"123456",
+                "senderName":"Frank Heinstayne",
+                "title":"Still another test",
+                "message":"test test test test test test test test test ...",
+                "creationDate":"1470756809000",
+                "read":"true",
+                "resultId": "4"
+            },{
+                "messageId":"5",
+                "senderId":"123456",
+                "senderName":"Frank Heinstayne",
+                "title":"Oh wait.... another test again!",
+                "message":"test test test test test test test test test ...",
+                "creationDate":"1470736995000",
+                "read":"true",
+                "resultId": "6"
+            }
+        ]
+        
+## Get sent messages list After [/V1/messages/{doctorId}/sent/list/after/{startingTimestamp}]
+A doctor related service that when used gives the sent messages list before a timestamp limited to a certain number.
+Request parameters:
++ username (required, string, `test`) ... Technical Username used to authenticate
++ password (required, string, `test`) ... Technical Pasword used to authenticate
++ doctorId (required, number, `123456`) ... OG/Riziv Number of the doctor for which the patients are requested
++ applicationId (required, number, `1`) ... Application ID used tho identify the calling app
+
+### Get sent messages list After [GET]
 + Request (application/x-www-form-urlencoded)
 
         username=test&password=test&doctorId=123456&applicationId=1
