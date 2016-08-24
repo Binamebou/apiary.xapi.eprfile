@@ -59,7 +59,7 @@ Request parameters:
 # Group Messaging
 Related resources of the **Medical File Data**
 
-## Get message [/V1/messages/{doctorId}/message/{messageId}]
+## Get message [/V1/messages/get/{messageId}]
 A doctor related service that when used gives a message information.
 Request parameters:
 + username (required, string, `test`) ... Technical Username used to authenticate
@@ -82,7 +82,8 @@ Request parameters:
             "message":"test test test test test test test test test ...",
             "creationDate":"1470820951067",
             "read":"false",
-            "resultId":"2"
+            "resultId":"2",
+            "previousMessageId":"1"
         }
 
 ## Get unread messages count [/V1/messages/{doctorId}/unread/count]
@@ -124,19 +125,21 @@ Request parameters:
                 "senderName":"Pladimir Voutine",
                 "title":"this is a test",
                 "message":"test test test test test test test test test ...",
-                "creationDate":"1470820951067",
+                "creationDate":"1472038080000",
                 "read":"false",
-                "resultId":"2"
+                "resultId":"2",
+                "previousMessageId":"1"
             },
             {
                 "messageId":"2",
-                "senderId":"9618551",
+                "senderId":"9618500",
                 "senderName":"Hançois Frollande",
-                "title":"this is a test as well",
-                "message":"test test test test test test test test test ...",
-                "creationDate":"1417136343068",
+                "title":"Another test",
+                "message":"test test test test test test ...",
+                "creationDate":"1472038070000",
                 "read":"false",
-                "visitId":"2"
+                "visitId":"2",
+                "previousMessageId":"1"
             },
             {
                 "messageId":"3",
@@ -144,9 +147,10 @@ Request parameters:
                 "senderName":"Obarack Bama",
                 "title":"Another test",
                 "message":"test test test test test test test test test ...",
-                "creationDate":"1470738905000",
+                "creationDate":"1472038000000",
                 "read":"false",
-                "visitId":"3"
+                "visitId":"3",
+                "previousMessageId":"1"
             },
             {
                 "messageId":"4",
@@ -154,18 +158,20 @@ Request parameters:
                 "senderName":"Cill Blinton",
                 "title":"Still another test",
                 "message":"test test test test test test test test test ...",
-                "creationDate":"1470756809000",
+                "creationDate":"1472037080000",
                 "read":"false",
-                "resultId": "4"
+                "resultId": "4",
+                "previousMessageId":"1"
             },{
                 "messageId":"5",
                 "senderId":"9618587",
                 "senderName":"Obarack Bama",
                 "title":"Oh wait.... another test again!",
                 "message":"test test test test test test test test test ...",
-                "creationDate":"1470736995000",
+                "creationDate":"1472036580000",
                 "read":"false",
-                "resultId": "6"
+                "resultId": "6",
+                "previousMessageId":"1"
             },
             {
                 "messageId":"6",
@@ -173,7 +179,7 @@ Request parameters:
                 "senderName":"Haden Ezard",
                 "title":"This is well a test",
                 "message":"test test test test test test test test test ...",
-                "creationDate":"1470831451067",
+                "creationDate":"1472035080000",
                 "read":"false",
                 "resultId":"1"
             },
@@ -183,9 +189,10 @@ Request parameters:
                 "senderName":"Prad Bitt",
                 "title":"this is a test as well",
                 "message":"test test test test test test test test test ...",
-                "creationDate":"1470820581067",
+                "creationDate":"1472029080000",
                 "read":"false",
-                "patientId":"2"
+                "patientId":"2",
+                "previousMessageId":"1"
             }
         ]
 
@@ -205,7 +212,123 @@ Request parameters:
 + Response 200 (application/json)
 
         [
-            
+            {
+                "messageId":"1",
+                "senderId":"145871",
+                "senderName":"Pladimir Voutine",
+                "title":"this is a test",
+                "message":"test test test test test test test test test ...",
+                "creationDate":"1472038080000",
+                "read":"false",
+                "resultId":"2",
+                "previousMessageId":"1"
+            }, {
+                "messageId":"2",
+                "senderId":"9618500",
+                "senderName":"Hançois Frollande",
+                "title":"Another test",
+                "message":"test test test test test test ...",
+                "creationDate":"1472038070000",
+                "read":"false",
+                "visitId":"2",
+                "previousMessageId":"1"
+            }, {
+                "messageId":"3",
+                "senderId":"9618587",
+                "senderName":"Obarack Bama",
+                "title":"Another test",
+                "message":"test test test test test test test test test ...",
+                "creationDate":"1472038000000",
+                "read":"false",
+                "visitId":"3",
+                "previousMessageId":"1"
+            }, {
+                "messageId":"4",
+                "senderId":"9617951",
+                "senderName":"Cill Blinton",
+                "title":"Still another test",
+                "message":"test test test test test test test test test ...",
+                "creationDate":"1472037080000",
+                "read":"false",
+                "resultId": "4",
+                "previousMessageId":"1"
+            }, {
+                "messageId":"5",
+                "senderId":"9618587",
+                "senderName":"Obarack Bama",
+                "title":"Oh wait.... another test again!",
+                "message":"test test test test test test test test test ...",
+                "creationDate":"1472036580000",
+                "read":"false",
+                "resultId": "6",
+                "previousMessageId":"1"
+            }, {
+                "messageId":"6",
+                "senderId":"456111",
+                "senderName":"Haden Ezard",
+                "title":"This is well a test",
+                "message":"test test test test test test test test test ...",
+                "creationDate":"1472035080000",
+                "read":"false",
+                "resultId":"1"
+            }, {
+                "messageId":"7",
+                "senderId":"9618551",
+                "senderName":"Prad Bitt",
+                "title":"this is a test as well",
+                "message":"test test test test test test test test test ...",
+                "creationDate":"1472029080000",
+                "read":"false",
+                "patientId":"2",
+                "previousMessageId":"1"
+            }, {
+                "messageId":"8",
+                "senderId":"9618587",
+                "senderName":"Obarack Bama",
+                "title":"Again a simple test",
+                "message":"test test test test test test test test test ...",
+                "creationDate":"1470724665000",
+                "read":"true",
+                "patientId":"3",
+                "previousMessageId":"1"
+            }, {
+                "messageId":"9",
+                "senderId":"123463",
+                "senderName":"Cill Blinton",
+                "title":"Still another test",
+                "message":"test test test test test test test test test ...",
+                "creationDate":"1472008080000",
+                "read":"true",
+                "resultId":"4",
+                "previousMessageId":"1"
+            }, {
+                "messageId":"10",
+                "senderId":"123456",
+                "senderName":"Obarack Bama",
+                "title":"Oh wait.... another test again!",
+                "message":"test test test test test test test test test ...",
+                "creationDate":"1472005080000",
+                "read":"true",
+                "patientId": "1",
+                "previousMessageId":"1"
+            }, {
+                "messageId":"11",
+                "senderId":"145871",
+                "senderName":"Pladimir Voutine",
+                "title":"Rouski test",
+                "creationDate":"1471838080000",
+                "read":"true",
+                "resultId":"4",
+                "previousMessageId":"1"
+            }, {
+                "messageId":"12",
+                "senderId":"9618500",
+                "senderName":"Hançois Frollande",
+                "title":"Fronjour la bande",
+                "creationDate":"1462038080000",
+                "read":"true",
+                "previousMessageId":"1"
+            }
         ]
         
 ## Get received messages list After [/V1/messages/{doctorId}/received/list/after/{startingTimestamp}]
@@ -230,70 +353,70 @@ Request parameters:
                 "senderName":"Pladimir Voutine",
                 "title":"this is a test",
                 "message":"test test test test test test test test test ...",
-                "creationDate":"1470820951067",
+                "creationDate":"1472038080000",
                 "read":"false",
-                "resultId":"2"
-            },
-            {
+                "resultId":"2",
+                "previousMessageId":"1"
+            }, {
                 "messageId":"2",
-                "senderId":"9618551",
+                "senderId":"9618500",
                 "senderName":"Hançois Frollande",
-                "title":"this is a test as well",
-                "message":"test test test test test test test test test ...",
-                "creationDate":"1417136343068",
+                "title":"Another test",
+                "message":"test test test test test test ...",
+                "creationDate":"1472038070000",
                 "read":"false",
-                "visitId":"2"
-            },
-            {
+                "visitId":"2",
+                "previousMessageId":"1"
+            }, {
                 "messageId":"3",
                 "senderId":"9618587",
                 "senderName":"Obarack Bama",
                 "title":"Another test",
                 "message":"test test test test test test test test test ...",
-                "creationDate":"1470738905000",
+                "creationDate":"1472038000000",
                 "read":"false",
-                "visitId":"3"
-            },
-            {
+                "visitId":"3",
+                "previousMessageId":"1"
+            }, {
                 "messageId":"4",
                 "senderId":"9617951",
                 "senderName":"Cill Blinton",
                 "title":"Still another test",
                 "message":"test test test test test test test test test ...",
-                "creationDate":"1470756809000",
+                "creationDate":"1472037080000",
                 "read":"false",
-                "resultId": "4"
-            },{
+                "resultId": "4",
+                "previousMessageId":"1"
+            }, {
                 "messageId":"5",
                 "senderId":"9618587",
                 "senderName":"Obarack Bama",
                 "title":"Oh wait.... another test again!",
                 "message":"test test test test test test test test test ...",
-                "creationDate":"1470736995000",
+                "creationDate":"1472036580000",
                 "read":"false",
-                "resultId": "6"
-            },
-            {
+                "resultId": "6",
+                "previousMessageId":"1"
+            }, {
                 "messageId":"6",
                 "senderId":"456111",
                 "senderName":"Haden Ezard",
                 "title":"This is well a test",
                 "message":"test test test test test test test test test ...",
-                "creationDate":"1470831451067",
+                "creationDate":"1472035080000",
                 "read":"false",
                 "resultId":"1"
-            },
-            {
+            }, {
                 "messageId":"7",
                 "senderId":"9618551",
                 "senderName":"Prad Bitt",
                 "title":"this is a test as well",
                 "message":"test test test test test test test test test ...",
-                "creationDate":"1470820581067",
+                "creationDate":"1472029080000",
                 "read":"false",
-                "patientId":"2"
-            },
-            {
+                "patientId":"2",
+                "previousMessageId":"1"
+            }, {
                 "messageId":"8",
                 "senderId":"9618587",
                 "senderName":"Obarack Bama",
@@ -301,44 +424,47 @@ Request parameters:
                 "message":"test test test test test test test test test ...",
                 "creationDate":"1470724665000",
                 "read":"true",
-                "patientId":"3"
-            },
-            {
+                "patientId":"3",
+                "previousMessageId":"1"
+            }, {
                 "messageId":"9",
-                "senderId":"123456",
+                "senderId":"123463",
                 "senderName":"Cill Blinton",
                 "title":"Still another test",
                 "message":"test test test test test test test test test ...",
-                "creationDate":"1470735408000",
+                "creationDate":"1472008080000",
                 "read":"true",
-                "linkedItemId":"4",
-                "type": "result"
-            },{
+                "resultId":"4",
+                "previousMessageId":"1"
+            }, {
                 "messageId":"10",
                 "senderId":"123456",
                 "senderName":"Obarack Bama",
                 "title":"Oh wait.... another test again!",
                 "message":"test test test test test test test test test ...",
-                "creationDate":"1470736195000",
+                "creationDate":"1472005080000",
                 "read":"true",
-                "type": "message",
-                "linkedItemId": "8"
-            },{
+                "patientId": "1",
+                "previousMessageId":"1"
+            }, {
                 "messageId":"11",
                 "senderId":"145871",
                 "senderName":"Pladimir Voutine",
                 "title":"Rouski test",
-                "creationDate":"1470834451437",
+                "message":"test test test test test test test test test ...",
+                "creationDate":"1471838080000",
                 "read":"true",
-                "resultId":"4"
-            },
-            {
+                "resultId":"4",
+                "previousMessageId":"1"
+            }, {
                 "messageId":"12",
-                "senderId":"9618551",
+                "senderId":"9618500",
                 "senderName":"Hançois Frollande",
                 "title":"Fronjour la bande",
-                "creationDate":"1470830544500",
-                "read":"true"
+                "message":"test test test test test test test test test ...",
+                "creationDate":"1462038080000",
+                "read":"true",
+                "previousMessageId":"1"
             }
         ]
 
@@ -366,7 +492,8 @@ Request parameters:
                 "message":"test test test test test test test test test ...",
                 "creationDate":"1470820951067",
                 "read":"true",
-                "resultId":"2"
+                "resultId":"2",
+                "previousMessageId":"1"
             },
             {
                 "messageId":"2",
@@ -376,7 +503,8 @@ Request parameters:
                 "message":"test test test test test test test test test ...",
                 "creationDate":"1417136343068",
                 "read":"true",
-                "visitId":"2"
+                "visitId":"2",
+                "previousMessageId":"1"
             },
             {
                 "messageId":"3",
@@ -433,7 +561,8 @@ Request parameters:
                 "message":"test test test test test test test test test ...",
                 "creationDate":"1470820951067",
                 "read":"true",
-                "resultId":"2"
+                "resultId":"2",
+                "previousMessageId":"1"
             },
             {
                 "messageId":"2",
@@ -443,7 +572,8 @@ Request parameters:
                 "message":"test test test test test test test test test ...",
                 "creationDate":"1417136343068",
                 "read":"true",
-                "visitId":"2"
+                "visitId":"2",
+                "previousMessageId":"1"
             },
             {
                 "messageId":"3",
